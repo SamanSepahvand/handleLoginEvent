@@ -1,0 +1,28 @@
+in oncreate LoginActivity:
+
+//define 
+SharedPreferences shared;
+
+
+//call and init
+oncreate(){
+SharedPreferences shared=getSharedPrefrences("pref",Mode_Private);
+handleLogin();
+}
+
+
+
+///savestate
+private void handleLogin(){
+        if(shared.contains("LogKey")){
+            startActivity(new Intent(Login.this,MainActivity.class));
+        }else{
+            SharedPreferences.Editor editor=shared.edit();
+            editor.putString("LogKey","1");
+            editor.commit();
+        }
+    }
+
+
+
+//good Lock have fun :))
